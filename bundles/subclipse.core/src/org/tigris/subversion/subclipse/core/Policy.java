@@ -16,8 +16,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.core.runtime.SubProgressMonitor;
-import org.tigris.subversion.subclipse.core.internal.InfiniteSubProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 
 public class Policy {
 
@@ -140,7 +139,8 @@ public class Policy {
   public static IProgressMonitor subMonitorFor(IProgressMonitor monitor, int ticks) {
     if (monitor == null) return new NullProgressMonitor();
     if (monitor instanceof NullProgressMonitor) return monitor;
-    return new SubProgressMonitor(monitor, ticks, SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK);
+    SubMonitor subMonitor = SubMonitor.convert(monitor, ticks);
+    return subMonitor;
   }
 
   /**
@@ -161,7 +161,8 @@ public class Policy {
   public static IProgressMonitor subMonitorFor(IProgressMonitor monitor, int ticks, int style) {
     if (monitor == null) return new NullProgressMonitor();
     if (monitor instanceof NullProgressMonitor) return monitor;
-    return new SubProgressMonitor(monitor, ticks, style);
+    SubMonitor subMonitor = SubMonitor.convert(monitor, ticks);
+    return subMonitor.split(style);
   }
 
   /**
@@ -175,8 +176,8 @@ public class Policy {
   public static IProgressMonitor infiniteSubMonitorFor(IProgressMonitor monitor, int ticks) {
     if (monitor == null) return new NullProgressMonitor();
     if (monitor instanceof NullProgressMonitor) return monitor;
-    return new InfiniteSubProgressMonitor(
-        monitor, ticks, SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK);
+    SubMonitor subMonitor = SubMonitor.convert(monitor, ticks);
+    return subMonitor;
   }
 
   /**
@@ -197,8 +198,12 @@ public class Policy {
    */
   public static IProgressMonitor infiniteSubMonitorFor(
       IProgressMonitor monitor, int ticks, int style) {
-    if (monitor == null) return new NullProgressMonitor();
-    if (monitor instanceof NullProgressMonitor) return monitor;
-    return new InfiniteSubProgressMonitor(monitor, ticks, style);
+    if (monitor == null) {
+    	return new NullProgressMonitor();
+    } else if (monitor instanceof NullProgressMonitor) { 
+    	return monitor;
+    }
+    SubMonitor subMonitor = SubMonitor.convert(monitor, ticks);
+    return subMonitor.split(style);
   }
 }

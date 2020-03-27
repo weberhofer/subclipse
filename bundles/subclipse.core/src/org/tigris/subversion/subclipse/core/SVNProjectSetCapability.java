@@ -25,7 +25,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.core.runtime.jobs.ISchedulingRule;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.core.runtime.jobs.MultiRule;
@@ -173,7 +173,7 @@ public class SVNProjectSetCapability extends ProjectSetCapability {
           break;
         }
         LoadInfo info = infoMap.get(project);
-        if (info != null && info.checkout(new SubProgressMonitor(monitor, 1000))) {
+        if (info != null && info.checkout(SubMonitor.convert(monitor, 1000))) {
           result.add(project);
         }
       }
@@ -288,12 +288,12 @@ public class SVNProjectSetCapability extends ProjectSetCapability {
       try {
         monitor.beginTask("Importing", 3 * 1000);
 
-        createExistingProject(new SubProgressMonitor(monitor, 1000));
+        createExistingProject(SubMonitor.convert(monitor, 1000));
 
         monitor.subTask("Refreshing " + project.getName());
         RepositoryProvider.map(project, SVNProviderPlugin.getTypeId());
         monitor.worked(1000);
-        SVNWorkspaceRoot.setSharing(project, new SubProgressMonitor(monitor, 1000));
+        SVNWorkspaceRoot.setSharing(project, SubMonitor.convert(monitor, 1000));
 
         return true;
       } catch (CoreException ce) {
@@ -322,8 +322,8 @@ public class SVNProjectSetCapability extends ProjectSetCapability {
                     new Path(directory + File.separatorChar + ".project")); // $NON-NLS-1$
 
         description.setName(projectName);
-        project.create(description, new SubProgressMonitor(monitor, 1000));
-        project.open(new SubProgressMonitor(monitor, 1000));
+        project.create(description, SubMonitor.convert(monitor, 1000));
+        project.open(SubMonitor.convert(monitor, 1000));
       } finally {
         monitor.done();
       }

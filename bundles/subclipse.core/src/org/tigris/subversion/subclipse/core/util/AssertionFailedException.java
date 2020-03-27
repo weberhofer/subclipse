@@ -19,7 +19,8 @@ package org.tigris.subversion.subclipse.core.util;
  */
 /* package */
 class AssertionFailedException extends RuntimeException {
-  /** Constructs a new exception. */
+	private static final long serialVersionUID = 1L;
+	/** Constructs a new exception. */
   public AssertionFailedException() {}
   /** Constructs a new exception with the given message. */
   public AssertionFailedException(String detail) {
