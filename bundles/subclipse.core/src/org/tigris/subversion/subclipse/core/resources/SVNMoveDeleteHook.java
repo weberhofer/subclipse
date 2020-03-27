@@ -339,7 +339,6 @@ public class SVNMoveDeleteHook implements IMoveDeleteHook {
 
   // Get the DeferFileDelete Property for selected resource.
   private boolean getDeferFileDelete(IResource resource) {
-    ISVNProperty property = null;
     ISVNLocalResource svnResource = SVNWorkspaceRoot.getSVNResourceFor(resource);
     ISVNLocalResource parent = svnResource;
     try {
