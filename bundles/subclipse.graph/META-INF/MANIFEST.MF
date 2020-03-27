@@ -22,4 +22,4 @@ Export-Package: org.tigris.subversion.subclipse.graph.cache
 Bundle-ClassPath: .
 Bundle-Vendor: Subclipse
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

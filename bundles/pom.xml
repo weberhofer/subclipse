@@ -1,5 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.2.0 http://maven.apache.org/xsd/maven-4.2.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>org.tigris.subclipse.bundles</artifactId>
     <packaging>pom</packaging>
@@ -9,6 +9,21 @@
         <artifactId>org.tigris.subclipse.root</artifactId>
         <version>4.3.1-SNAPSHOT</version>
     </parent>
+    
+    <properties>
+        <tycho.version>1.6.0</tycho.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <eclipse-repo.url>http://download.eclipse.org/releases/latest</eclipse-repo.url>
+    </properties>
+
+ <repositories>
+  <repository>
+   <id>eclipse-release</id>
+   <url>${eclipse-repo.url}</url>
+   <layout>p2</layout>
+  </repository>
+
+ </repositories>
 
     <modules>
         <module>svnapi.core</module>

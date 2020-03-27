@@ -53,4 +53,4 @@ Export-Package: org.tigris.subversion.subclipse.ui,
  org.tigris.subversion.subclipse.ui.wizards.dialogs,
  org.tigris.subversion.subclipse.ui.wizards.generatediff,
  org.tigris.subversion.subclipse.ui.wizards.sharing
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
