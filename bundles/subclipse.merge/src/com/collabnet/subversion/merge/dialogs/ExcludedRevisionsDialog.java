@@ -120,7 +120,6 @@ public class ExcludedRevisionsDialog extends TrayDialog {
     return false;
   }
 
-  @SuppressWarnings("unchecked")
   private void getExcludedRevisions() {
     List<ExcludedRevision> excludedRevisionList = new ArrayList<ExcludedRevision>();
     Set keySet = excludedRevisions.keySet();
@@ -141,7 +140,6 @@ public class ExcludedRevisionsDialog extends TrayDialog {
     Arrays.sort(excludedRevisionArray);
   }
 
-  @SuppressWarnings("unchecked")
   class ExcludedRevision implements Comparable {
     private String revision;
     private String url;

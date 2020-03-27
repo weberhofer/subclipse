@@ -52,7 +52,6 @@ import org.tigris.subversion.svnclientadapter.ISVNStatus;
 import org.tigris.subversion.svnclientadapter.SVNStatusKind;
 import org.tigris.subversion.svnclientadapter.utils.Depth;
 
-@SuppressWarnings("unchecked")
 public class MergeWizardBestPracticesPage extends MergeWizardWarningPage {
   private boolean localMods;
   private boolean switchedChildren;

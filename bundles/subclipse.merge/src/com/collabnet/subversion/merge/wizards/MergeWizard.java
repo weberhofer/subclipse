@@ -266,7 +266,6 @@ public class MergeWizard extends Wizard {
     this.commonRoot = commonRoot;
   }
 
-  @SuppressWarnings("unchecked")
   public String getCommonRoot() {
     if (commonRoot == null) {
       ArrayList urlList = new ArrayList();

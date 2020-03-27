@@ -484,7 +484,7 @@ public class MergeResultsView extends ViewPart {
 
     public void run() {
       DeleteMergeOutputAction deleteAction = new DeleteMergeOutputAction();
-      deleteAction.selectionChanged(this, view.getView().getTreeViewer().getSelection());
+      deleteAction.selectionChanged(this, MergeResultsView.getView().getTreeViewer().getSelection());
       deleteAction.run(this);
     }
   }

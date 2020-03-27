@@ -9,8 +9,6 @@
  */
 package org.tigris.subversion.subclipse.core.resources;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.core.resources.IContainer;

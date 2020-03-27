@@ -25,8 +25,6 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.team.core.TeamException;
-import org.tigris.subversion.subclipse.core.ISVNLocalResource;
-import org.tigris.subversion.subclipse.core.resources.SVNWorkspaceRoot;
 import org.tigris.subversion.subclipse.ui.actions.WorkspaceAction;
 import org.tigris.subversion.svnclientadapter.SVNRevision;
 import org.tigris.subversion.svnclientadapter.SVNUrl;
@@ -50,7 +48,6 @@ public class CopyFromMergeSourceAction extends WorkspaceAction {
           SVNUrl svnUrl = mergeOptions.getFromUrl();
           resource = skippedMergeResult.getResource();
           if (!resource.exists()) {
-            ISVNLocalResource svnResource = SVNWorkspaceRoot.getSVNResourceFor(resource);
             String resourceSubString =
                 resource
                     .getFullPath()
@@ -79,7 +76,6 @@ public class CopyFromMergeSourceAction extends WorkspaceAction {
           SVNUrl svnUrl = mergeOptions.getFromUrl();
           resource = skippedMergeResultsFolder.getFolder();
           if (!resource.exists()) {
-            ISVNLocalResource svnResource = SVNWorkspaceRoot.getSVNResourceFor(resource);
             String resourceSubString =
                 resource
                     .getFullPath()

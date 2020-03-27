@@ -50,8 +50,6 @@ public class ConflictHandlingWizardPage extends WizardPage {
       "ConflictHandlingDialog.lastTextChoice"; //$NON-NLS-1$
   private static final String LAST_BINARY_CHOICE =
       "ConflictHandlingDialog.lastBinaryChoice"; //$NON-NLS-1$
-  private static final String LAST_TREE_CHOICE =
-      "ConflictHandlingDialog.lastTreeChoice"; //$NON-NLS-1$
 
   public ConflictHandlingWizardPage(String pageName) {
     super(

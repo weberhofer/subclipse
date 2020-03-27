@@ -360,16 +360,8 @@ public class BranchTagWizardRepositoryPage extends SVNWizardPage {
       return remoteResource;
     }
 
-    public void setResource(IResource resource) {
-      this.resource = resource;
-    }
-
     public String getPartialPath() {
       return partialPath;
-    }
-
-    public void setPartialPath(String partialPath) {
-      this.partialPath = partialPath;
     }
 
     public Object getAdapter(Class adapter) {

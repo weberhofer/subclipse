@@ -515,19 +515,10 @@ public class MergeWizardStandardPage extends WizardPage {
       return resource;
     }
 
-    public void setResource(IResource resource) {
-      this.resource = resource;
-    }
-
     public String getPartialPath() {
       return partialPath;
     }
 
-    public void setPartialPath(String partialPath) {
-      this.partialPath = partialPath;
-    }
-
-    @SuppressWarnings("unchecked")
     public Object getAdapter(Class adapter) {
       if (IResource.class == adapter) return resource;
       return null;

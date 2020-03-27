@@ -59,7 +59,6 @@ public class MergeViewResolveAction extends ResolveAction {
       List resources = new ArrayList();
       Iterator iter = fSelection.iterator();
       boolean folderSelected = false;
-      boolean textConflicts = false;
       boolean propertyConflicts = false;
       boolean treeConflicts = false;
       while (iter.hasNext()) {
@@ -76,7 +75,6 @@ public class MergeViewResolveAction extends ResolveAction {
             && (mergeResult.hasTreeConflict()
                 || mergeResult.isConflicted()
                 || mergeResult.isPropertyConflicted())) {
-          if (mergeResult.isConflicted()) textConflicts = true;
           if (mergeResult.isPropertyConflicted()) propertyConflicts = true;
           if (mergeResult.hasTreeConflict()) treeConflicts = true;
           if (!(selectedObject instanceof MergeResultsFolder)) {
@@ -129,7 +127,6 @@ public class MergeViewResolveAction extends ResolveAction {
         resources.toArray(resourceArray);
         DialogWizard dialogResolveWizard = new DialogWizard(DialogWizard.MARK_RESOLVED);
         dialogResolveWizard.setResources(resourceArray);
-        dialogResolveWizard.setTextConflicts(textConflicts);
         dialogResolveWizard.setPropertyConflicts(propertyConflicts);
         dialogResolveWizard.setTreeConflicts(treeConflicts);
         MergeWizardDialog resolveDialog =
@@ -216,7 +213,6 @@ public class MergeViewResolveAction extends ResolveAction {
     }
   }
 
-  @SuppressWarnings("unchecked")
   @Override
   protected boolean isEnabled() throws TeamException {
     boolean enabled = super.isEnabled();

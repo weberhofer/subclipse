@@ -35,7 +35,6 @@ public class ResolveConflictWizardPage extends WizardPage {
   private Button chooseIncomingVersionForConflictsButton;
   private Button chooseBaseVersionButton;
   private IDialogSettings settings;
-  private boolean textConflicts;
   private boolean propertyConflicts;
   private boolean treeConflicts;
   private static final String LAST_CHOICE = "ResolveConflictDialog.lastChoice"; // $NON-NLS-1$
@@ -201,10 +200,6 @@ public class ResolveConflictWizardPage extends WizardPage {
     else if (chooseBaseVersionButton.getSelection())
       resolution = ISVNConflictResolver.Choice.chooseBase;
     return resolution;
-  }
-
-  public void setTextConflicts(boolean textConflicts) {
-    this.textConflicts = textConflicts;
   }
 
   public void setPropertyConflicts(boolean propertyConflicts) {

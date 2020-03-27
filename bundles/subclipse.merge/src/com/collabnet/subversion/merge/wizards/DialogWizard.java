@@ -28,7 +28,6 @@ public class DialogWizard extends Wizard {
   private String incomingValue;
   private String valueToUse;
   private IResource[] resources;
-  private boolean textConflicts;
 
   private boolean propertyConflicts;
   private boolean treeConflicts;
@@ -134,7 +133,6 @@ public class DialogWizard extends Wizard {
       setWindowTitle(Messages.DialogWizard_resolveTitle);
       resolveConflictWizardPage =
           new ResolveConflictWizardPage("resolveConflict", resources); // $NON-NLS-1$
-      resolveConflictWizardPage.setTextConflicts(textConflicts);
       resolveConflictWizardPage.setPropertyConflicts(propertyConflicts);
       resolveConflictWizardPage.setTreeConflicts(treeConflicts);
       addPage(resolveConflictWizardPage);
@@ -249,10 +247,6 @@ public class DialogWizard extends Wizard {
 
   public String getValueToUse() {
     return valueToUse;
-  }
-
-  public void setTextConflicts(boolean textConflicts) {
-    this.textConflicts = textConflicts;
   }
 
   public void setPropertyConflicts(boolean propertyConflicts) {
