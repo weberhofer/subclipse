@@ -26,3 +26,4 @@ Export-Package: org.tigris.subversion.subclipse.core,
  org.tigris.subversion.subclipse.core.sync,
  org.tigris.subversion.subclipse.core.util
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: org.tigris.subversion.subclipse.core
